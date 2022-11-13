@@ -1,0 +1,66 @@
+.info{
+  height: 100vh;
+  &.cloudy{
+    background: url("http://farm4.static.flickr.com/3066/2745210708_f3ecb8a3ed_o.jpg");
+    background: url("https://wallpaperaccess.com/full/5529391.jpg");
+    background-size: cover;
+    color: white;
+  }
+  .left{
+    height: 100vh;
+    justify-content: space-around;
+    flex-direction: column;
+    .location{
+      h1{
+        font-size: 7rem;
+        text-align: center;
+      }
+    }
+
+    h2{
+      font-size: 8rem;
+      text-align: right;
+      padding-right: 1rem;
+    }
+  }
+  .right{
+    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    .weather{
+      z-index: 1;
+      text-align: center;
+      .fa{
+        font-size: 15rem;
+        margin-top: 3rem;
+      }
+      .condition{
+        font-size: 6rem;
+        margin-top: 1rem;
+      }
+    }
+    ul{
+      z-index: 1;
+      padding: 1rem;
+      li{
+        padding: 10px 15px;
+        display: flex;
+        font-size: 3rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border-bottom: solid 2px white;
+      }
+    }
+    .opacity{
+      position: absolute;
+      background-color: black;
+      opacity: 0.6;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+  }
+}

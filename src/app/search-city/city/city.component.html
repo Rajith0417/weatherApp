@@ -1,1 +1,22 @@
-<p>city works!</p>
+
+<div class="city">
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <div class="col-12">
+        <form action="">
+          <input type="text" class="city" [(ngModel)]="cityName" name="cityName">
+          <button type="submit" (click)="getCity()">Find</button>
+        </form>
+        <div *ngIf="cities.length > 1" class="country_list">
+          Please select a city
+          <ul  class="list-group">
+            <li class="list-group-item list-group-item-action" (click)="selectedCity(city)" *ngFor="let city of cities; trancByFunction">
+              {{city.name}} - {{city.country}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
