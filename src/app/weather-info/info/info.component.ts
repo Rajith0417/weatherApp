@@ -29,7 +29,7 @@ export class InfoComponent implements OnInit {
   }
 
   getWeatherData() {
-    if (this.selectedCity.name != '' && this.selectedCity.country != '') {
+    if (this.selectedCity.name == '' && this.selectedCity.country == '') {
       this.errorMessage = 'Parameters are missing';
     } else {
       this.openWeatherService
