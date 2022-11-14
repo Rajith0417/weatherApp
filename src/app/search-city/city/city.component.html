@@ -7,6 +7,9 @@
             <input class="form-control input" type="text" [(ngModel)]="cityName" name="cityName">
             <button class="btn btn-success" type="submit" (click)="getCity()">Find</button>
         </form>
+        <div *ngIf="cities.length == 0 " class="error">
+          <p>{{errorMessage}}</p>
+        </div>
         <div *ngIf="cities.length > 1" class="country-list">
           <p>Please select a city</p>
           <ul  class="list-group">

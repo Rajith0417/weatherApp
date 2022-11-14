@@ -11,9 +11,9 @@ import { map } from 'rxjs/operators'
 })
 export class CityComponent implements OnInit {
 
-  cityName: string = ""
-  // city!: City;
+  cityName: string = "";
   cities: City[] = [];
+  errorMessage = "";
 
   constructor(private openWeatherService: OpenWeatherService, private router: Router) { }
 
@@ -21,42 +21,36 @@ export class CityComponent implements OnInit {
   }
 
   getCity(){
-    // this.openWeatherService.getCityInfo(this.cityName).subscribe(res=>{
-    //   console.log(res);
-    //   if(res.length == 1){
-    //     this.city = res;
-    //     console.log(res);
-    //   }else{
-    //     this.cities = res;
-    //     console.log(this.cities);
-    //   }
-    // },error=>{
-    //   console.log(error);
-    // });
-    // .pipe(map((res: any)=>{
-    //   return res;
-    // }));
-    this.openWeatherService.getCityInfo(this.cityName).pipe(map((
-    data: any[]) =>
-    data.map(item => {
-      return new City(
-        item.name,
-        item.country
-      )
-    })))
-    .subscribe(res => {
-      console.log(res);
-      if(res.length == 1){
-        // this.city = res;
-        // console.log(res[0].name);
-        this.selectedCity(res[0]);
-      }else{
-        this.cities = res;
-        console.log(this.cities);
-      }
-    }, error=>{
-      console.log(error);
-    });
+    if(this.cityName == ""){
+      this.errorMessage = "Please enter a city";
+    }else {
+      this.openWeatherService.getCityInfo(this.cityName).pipe(map((
+        data: any[]) =>
+        data.map(item => {
+          return new City(
+            item.name,
+            item.country
+          )
+        })))
+        .subscribe({
+          next: (res) => {
+            console.log(res);
+            if(res.length == 1){
+              this.selectedCity(res[0]);
+            }else{
+              this.cities = res;
+              console.log(this.cities);
+            }
+          },
+          error: (error) => {
+            console.log(error);
+            this.errorMessage = error.error.message;
+          },
+          complete: () => {
+
+          }
+        });
+    }
   }
 
   selectedCity(city: City){
