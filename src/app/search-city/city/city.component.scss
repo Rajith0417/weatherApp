@@ -3,4 +3,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  .form{
+    margin-bottom: 15px;
+    .input{
+      margin-right: 15px;
+    }
+  }
+  .country-list{
+    p{
+      padding-left: 15px;
+    }
+  }
 }

@@ -1,34 +1,40 @@
 <div class="info cloudy">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-7 d-flex justify-content-around left">
-        <div class="location">
-          <h1 class="name">Moratuwa</h1>
+      <div *ngIf="cityInfo.length == 0" class="col-12 d-flex justify-content-center align-items-center error">
+        <div class="center">
+          <h2 class="error-message">
+            {{errorMessage}}
+          </h2>
+          <div class="opacity"></div>
         </div>
-        <h2 class="temparature">29<span>&#8451;</span></h2>
       </div>
-      <div class="col-5 d-flex justify-content-between right">
+      <div *ngIf="cityInfo.length != 0" class="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-around left">
+        <h1 class="temparature">{{cityInfo.temparature | number: '1.0-0'}}&deg;</h1>
+        <h2 class="city">{{cityInfo.city}},{{cityInfo.country}}</h2>
+      </div>
+      <div *ngIf="cityInfo.length != 0" class="col-12 col-sm-12 col-md-5 col-lg-5 d-flex justify-content-between right">
         <div class="weather">
-          <i class="fa fa-solid fa-cloud"></i>
+          <img class="img" src={{cityInfo.icon}} alt="Weather icon">
           <!-- <i class="fa fa-solid fa-snowflake-o"></i> -->
-          <div class="condition">Cloud</div>
+          <div class="condition">{{cityInfo.condition}}</div>
         </div>
         <ul>
           <li class="data">
             <span class="title">Humidity</span>
-            <span class="value">23%</span>
+            <span class="value">{{cityInfo.humadity}}%</span>
           </li>
           <li class="data">
             <span class="title">Wind Speed</span>
-            <span class="value">3Km/h</span>
+            <span class="value">{{cityInfo.windSpeed | number: '1.0-1'}}Mph</span>
           </li>
           <li class="data">
-            <span class="title">Humidity</span>
-            <span class="value">23%</span>
+            <span class="title">Wind Direction</span>
+            <span class="value">{{cityInfo.windDirection}}&deg;</span>
           </li>
           <li class="data">
-            <span class="title">Wind Speed</span>
-            <span class="value">3Km/h</span>
+            <span class="title">Pressure</span>
+            <span class="value">{{cityInfo.pressure}}hPa</span>
           </li>
         </ul>
         <div class="opacity"></div>

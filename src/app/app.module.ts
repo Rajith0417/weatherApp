@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// import { CelsiusPipe } from './shared/pipe/celsius.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // CelsiusPipe,
   ],
   imports: [
     BrowserModule,

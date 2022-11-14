@@ -1,58 +1,90 @@
-.info{
+.info {
   height: 100vh;
-  &.cloudy{
+
+  &.cloudy {
     background: url("http://farm4.static.flickr.com/3066/2745210708_f3ecb8a3ed_o.jpg");
     background: url("https://wallpaperaccess.com/full/5529391.jpg");
     background-size: cover;
     color: white;
   }
-  .left{
+
+  .left {
     height: 100vh;
     justify-content: space-around;
     flex-direction: column;
-    .location{
-      h1{
-        font-size: 7rem;
-        text-align: center;
-      }
+
+    .temparature {
+      font-size: 16rem;
+      text-align: center;
     }
 
-    h2{
-      font-size: 8rem;
+    .city {
+      font-size: 6rem;
       text-align: right;
       padding-right: 1rem;
     }
   }
-  .right{
+
+  .error{
+    height: 100vh;
+    .center{
+      padding: 10px 15px;
+      position: relative;
+      // .error-message{
+      //   font-size: 4rem;
+      //   z-index: 2;
+      //   color: #fff;
+      // }
+      // .opacity{
+      //   position: absolute;
+      //   width: 100%;
+      //   height: 100%;
+      //   background-color: black;
+      //   left: 0;
+      //   top: 0;
+      //   z-index: 0;
+      // }
+    }
+
+  }
+
+  .right {
     position: relative;
     flex-direction: column;
     justify-content: space-between;
-    .weather{
+
+    .weather {
       z-index: 1;
       text-align: center;
-      .fa{
-        font-size: 15rem;
-        margin-top: 3rem;
+
+      .img {
+        width: 150px;
+        height: 150px;
+        margin-top: 2rem;
       }
-      .condition{
+
+      .condition {
         font-size: 6rem;
         margin-top: 1rem;
       }
     }
-    ul{
+
+    ul {
       z-index: 1;
       padding: 1rem;
-      li{
+
+      li {
         padding: 10px 15px;
         display: flex;
-        font-size: 3rem;
+        font-size: 2rem;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         border-bottom: solid 2px white;
       }
     }
-    .opacity{
+
+    .opacity {
       position: absolute;
       background-color: black;
       opacity: 0.6;
@@ -61,6 +93,99 @@
       left: 0;
       right: 0;
       z-index: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .info{
+    // height: auto;
+    .left{
+      z-index: 1;
+      .temparature{
+        font-size: 12rem;
+      }
+      .city{
+        font-size: 4rem;
+      }
+    }
+    .right{
+      .weather{
+        .img{
+          margin-top: 0;
+        }
+        .condition{
+          margin-top: 0;
+          font-size: 4rem;
+        }
+      }
+      ul{
+        li{
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .info{
+    height: unset;
+    position: relative;
+    .left{
+      height: auto;
+      z-index: 1;
+      .temparature{
+        font-size: 12rem;
+      }
+      .city{
+        font-size: 4rem;
+        text-align: center;
+      }
+    }
+    .right{
+      position: unset;
+      .weather{
+        .img{
+          margin-top: 0;
+        }
+        .condition{
+          margin-top: 0;
+          font-size: 4rem;
+        }
+      }
+      ul{
+        li{
+          flex-direction: row;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .info{
+    height: unset;
+    .left{
+      .temparature{
+        font-size: 9rem;
+      }
+      .city{
+        font-size: 2.5rem;
+      }
+    }
+    .right{
+      .weather{
+        .condition{
+          font-size: 2.5rem;
+        }
+      }
+      ul{
+        li{
+          text-align: center;
+          justify-content: space-around;
+        }
+      }
     }
   }
 }
