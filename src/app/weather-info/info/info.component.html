@@ -11,6 +11,7 @@
         </div>
       </div>
       <div *ngIf="cityInfo.length != 0" class="col-12 col-sm-12 col-md-7 col-lg-7 d-flex justify-content-around left">
+        <a class="btn btn-success try-again" href="" routerLink="/">Try Again</a>
         <h1 class="temparature">{{cityInfo.temparature | number: '1.0-0'}}&deg;</h1>
         <h2 class="city">{{cityInfo.city}},{{cityInfo.country}}</h2>
       </div>

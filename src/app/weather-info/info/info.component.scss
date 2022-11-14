@@ -2,7 +2,7 @@
   height: 100vh;
 
   &.cloudy {
-    background: url("http://farm4.static.flickr.com/3066/2745210708_f3ecb8a3ed_o.jpg");
+    // background: url("http://farm4.static.flickr.com/3066/2745210708_f3ecb8a3ed_o.jpg");
     background: url("https://wallpaperaccess.com/full/5529391.jpg");
     background-size: cover;
     color: white;
@@ -13,6 +13,10 @@
     justify-content: space-around;
     flex-direction: column;
 
+    .try-again{
+      top: 15px;
+      position: absolute;
+    }
     .temparature {
       font-size: 16rem;
       text-align: center;
@@ -144,6 +148,7 @@
       z-index: 1;
       .temparature{
         font-size: 12rem;
+        margin-top: 2rem;
       }
       .city{
         font-size: 4rem;
